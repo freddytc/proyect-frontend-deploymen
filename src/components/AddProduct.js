@@ -16,7 +16,7 @@ function AddProduct({ setShowProductModal, addProductToList }) {
     };
 
     try {
-      const response = await axios.post("https://test-rso2.onrender.com/api/products", newProduct);
+      const response = await axios.post("${process.env.REACT_APP_BACKEND_URL}/api/products", newProduct);
       setProductName("");
       setPrice("");
       setAmount("");

@@ -11,7 +11,7 @@ function SaleDetailsModal({ sale, setShowDetailsModal }) {
 
   const fetchDetailSales = () => {
     axios
-      .get(`https://test-rso2.onrender.com/api/detailSales/sale-pro/${sale.id}`)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/api/detailSales/sale-pro/${sale.id}`)
       .then((response) => {
         setDetailSales(response.data);
         setLoading(false);
@@ -25,7 +25,7 @@ function SaleDetailsModal({ sale, setShowDetailsModal }) {
   // Verificar si ya hay un pago asociado a la venta
   const checkPaymentStatus = () => {
     axios
-      .get(`https://test-rso2.onrender.com/api/payments/sale/${sale.id}`) // Ajusta esta URL según tu API
+      .get(`${process.env.REACT_APP_BACKEND_URL}/api/payments/sale/${sale.id}`) // Ajusta esta URL según tu API
       .then((response) => {
         setHasPayment(response.data); // Asigna el estado basado en la respuesta del backend
       })
@@ -44,7 +44,7 @@ function SaleDetailsModal({ sale, setShowDetailsModal }) {
 
   const removeDetailSale = (detailId) => {
     axios
-      .delete(`https://test-rso2.onrender.com/api/detailSales/${detailId}`)
+      .delete(`${process.env.REACT_APP_BACKEND_URL}/api/detailSales/${detailId}`)
       .then(() => {
         setDetailSales((prevDetails) => prevDetails.filter((detail) => detail.id !== detailId));
         alert("Product removed successfully.");
@@ -118,7 +118,7 @@ function SaleDetailsModal({ sale, setShowDetailsModal }) {
       payment_method: "", // Asegúrate de incluir este campo si es necesario
     };
 
-    axios.post("https://test-rso2.onrender.com/api/payments", paymentData)
+    axios.post("${process.env.REACT_APP_BACKEND_URL}/api/payments", paymentData)
       .then((response) => {
         alert("¡Pago realizado con éxito!");
         setShowDetailsModal(false);

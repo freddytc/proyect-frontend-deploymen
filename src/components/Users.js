@@ -20,7 +20,7 @@ function UsersManagement({ onSelectUser }) {
   // Obtener los usuarios y el usuario autenticado
   useEffect(() => {
     axios
-      .get("https://test-rso2.onrender.com/api/users")
+      .get("${process.env.REACT_APP_BACKEND_URL}/api/users")
       .then((response) => {
         setUsers(response.data);
         setFilteredUsers(response.data); 
@@ -67,7 +67,7 @@ function UsersManagement({ onSelectUser }) {
 
   const deleteUser = async (userId) => {
     try {
-      await axios.delete(`https://test-rso2.onrender.com/api/users/${userId}`);
+      await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/api/users/${userId}`);
       setUsers((prevUsers) => prevUsers.filter((user) => user.id !== userId));
       setFilteredUsers((prevUsers) => prevUsers.filter((user) => user.id !== userId)); 
     } catch (error) {

@@ -37,7 +37,7 @@ function AddSale({ setShowSaleModal, updateSalesList }) {
     console.log("Datos de nueva venta:", newSale); // Verifica los datos
 
     axios
-      .post("https://test-rso2.onrender.com/api/sales", newSale)
+      .post("${process.env.REACT_APP_BACKEND_URL}/api/sales", newSale)
       .then((response) => {
         console.log("Venta añadida:", response.data);
         setShowSaleModal(false);

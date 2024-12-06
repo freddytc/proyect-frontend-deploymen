@@ -30,7 +30,7 @@ const UpdatePassword = () => {
     }
 
     try {
-      const response = await axios.post("https://test-rso2.onrender.com/api/auth/update-password", {
+      const response = await axios.post("${process.env.REACT_APP_BACKEND_URL}/api/auth/update-password", {
         email,
         newPassword,
       });

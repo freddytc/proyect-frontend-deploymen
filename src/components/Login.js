@@ -18,7 +18,7 @@ function Login({ onLogin }) {
     setError(null);
 
     try {
-      const response = await axios.post("https://test-rso2.onrender.com/api/auth/login", { email, password });
+      const response = await axios.post("${process.env.REACT_APP_BACKEND_URL}/api/auth/login", { email, password });
       if (response && response.data) {
         onLogin({
           id: response.data.id,
