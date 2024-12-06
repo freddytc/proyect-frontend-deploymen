@@ -6,7 +6,7 @@ function ProductRanking() {
 
   useEffect(() => {
     axios
-      .get("${process.env.REACT_APP_BACKEND_URL}/api/products/ranking")
+      .get("https://test-rso2.onrender.com/api/products/ranking")
       .then((response) => {
         // Limiting to the top 10 products
         setRanking(response.data.slice(0, 10));

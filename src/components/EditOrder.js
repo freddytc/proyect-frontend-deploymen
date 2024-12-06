@@ -26,7 +26,7 @@ function EditOrder({ order, setShowEditModal, onUpdateOrder }) {
 
     // Llamar a la API para actualizar la orden en el backend
     axios
-      .put(`${process.env.REACT_APP_BACKEND_URL}/api/orders/${order.id}`, updatedOrder)
+      .put(`https://test-rso2.onrender.com/api/orders/${order.id}`, updatedOrder)
       .then((response) => {
         onUpdateOrder(response.data); // Notificar al componente padre que la orden fue actualizada
         setShowEditModal(false); // Cerrar el modal

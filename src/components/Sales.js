@@ -22,12 +22,12 @@ function SalesManagement() {
   // Función para obtener las ventas del backend
   const fetchSales = () => {
     axios
-      .get("${process.env.REACT_APP_BACKEND_URL}/api/sales")
+      .get("https://test-rso2.onrender.com/api/sales")
       .then((response) => {
         const salesData = response.data;
         // Verificar si cada venta tiene un pago asociado
         const salesWithPaymentStatusPromises = salesData.map(sale =>
-          axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/payments/sale/${sale.id}`)
+          axios.get(`https://test-rso2.onrender.com/api/payments/sale/${sale.id}`)
             .then(response => ({
               ...sale,
               hasPayment: response.data // Agregar el estado de pago a la venta
@@ -91,7 +91,7 @@ function SalesManagement() {
   const deleteSale = (saleId) => {
     if (window.confirm("¿Estás seguro de que deseas eliminar esta venta?")) {
       axios
-        .delete(`${process.env.REACT_APP_BACKEND_URL}/api/sales/${saleId}`) // Asegúrate de que el endpoint sea correcto
+        .delete(`https://test-rso2.onrender.com/api/sales/${saleId}`) // Asegúrate de que el endpoint sea correcto
         .then(() => {
           alert("Venta eliminada exitosamente.");
           // Aquí puedes actualizar el estado o recargar los datos según sea necesario

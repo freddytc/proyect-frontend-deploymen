@@ -14,7 +14,7 @@ const ResetPasswordRequest = ({ setShowResetPassword }) => {
     setMessage(null);
 
     try {
-      const response = await axios.post("${process.env.REACT_APP_BACKEND_URL}/api/auth/reset-password", { email });
+      const response = await axios.post("https://test-rso2.onrender.com/api/auth/reset-password", { email });
       setMessage("We have sent you a link to reset your password.");
       setLoading(false);
     } catch (error) {

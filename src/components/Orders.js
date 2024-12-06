@@ -17,7 +17,7 @@ function OrdersManagement({ onSelectOrder }) {
 
   useEffect(() => {
     axios
-      .get("${process.env.REACT_APP_BACKEND_URL}/api/orders")
+      .get("https://test-rso2.onrender.com/api/orders")
       .then((response) => {
         setOrders(response.data);
       })

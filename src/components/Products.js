@@ -19,7 +19,7 @@ function Products() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("${process.env.REACT_APP_BACKEND_URL}/api/products");
+        const response = await axios.get("https://test-rso2.onrender.com/api/products");
         setProducts(response.data);
         setFilteredProducts(response.data); // Establecer los productos filtrados al cargar
       } catch (error) {
@@ -57,7 +57,7 @@ function Products() {
 
   const deleteProduct = async (id) => {
     try {
-      await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/api/products/${id}`);
+      await axios.delete(`https://test-rso2.onrender.com/api/products/${id}`);
       const filteredProducts = products.filter((product) => product.id !== id);
       setProducts(filteredProducts); // Actualiza el estado después de eliminar
       setFilteredProducts(filteredProducts); // También actualizar los productos filtrados

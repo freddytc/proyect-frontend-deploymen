@@ -15,7 +15,7 @@ function EditUserModal({ user, setShowEditModal, setUsers }) {
     useEffect(() => {
         const fetchRoles = async () => {
             try {
-                const response = await axios.get("${process.env.REACT_APP_BACKEND_URL}/api/roles"); // Obtener roles del backend
+                const response = await axios.get("https://test-rso2.onrender.com/api/roles"); // Obtener roles del backend
                 setRoles(response.data); // Establecer los roles en el estado
             } catch (error) {
                 console.error("Error fetching roles:", error);
@@ -37,7 +37,7 @@ function EditUserModal({ user, setShowEditModal, setUsers }) {
         };
 
         try {
-            const response = await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/users/${user.id}`, updatedUser);
+            const response = await axios.put(`https://test-rso2.onrender.com/api/users/${user.id}`, updatedUser);
             setUsers((prevUsers) =>
                 prevUsers.map((prevUser) =>
                     prevUser.id === user.id ? { ...prevUser, ...updatedUser } : prevUser

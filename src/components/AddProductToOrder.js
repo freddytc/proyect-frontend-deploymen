@@ -9,7 +9,7 @@ function AddProductToOrder({ order, setShowAddProductModal }) {
     // Obtener la lista de productos disponibles al montar el componente
     useEffect(() => {
         axios
-            .get("${process.env.REACT_APP_BACKEND_URL}/api/products") 
+            .get("https://test-rso2.onrender.com/api/products") 
             .then((response) => {
                 setProducts(response.data); 
                 console.log("Productos cargados:", response.data); 
@@ -57,7 +57,7 @@ function AddProductToOrder({ order, setShowAddProductModal }) {
 
         // Enviar los datos al backend
         axios
-            .post("${process.env.REACT_APP_BACKEND_URL}/api/orderDetails", orderDetail)
+            .post("https://test-rso2.onrender.com/api/orderDetails", orderDetail)
             .then(() => {
                 alert("Producto agregado exitosamente.");
                 setShowAddProductModal(false); 

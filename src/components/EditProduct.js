@@ -16,7 +16,7 @@ function EditProduct({ product, setShowEditModal, setProducts }) {
     };
 
     try {
-      const response = await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/products/${product.id}`, updatedProduct);
+      const response = await axios.put(`https://test-rso2.onrender.com/api/products/${product.id}`, updatedProduct);
       setProducts((prevProducts) =>
         prevProducts.map((prod) =>
           prod.id === product.id ? { ...prod, ...updatedProduct } : prod

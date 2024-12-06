@@ -14,7 +14,7 @@ function AddOrder({ setShowModal, addOrderToList }) {
 
     try {
       // Enviar la nueva orden al backend
-      const response = await axios.post("${process.env.REACT_APP_BACKEND_URL}/api/orders", newOrder);
+      const response = await axios.post("https://test-rso2.onrender.com/api/orders", newOrder);
 
       // Agregar la nueva orden a la lista en OrdersManagement
       addOrderToList(response.data);

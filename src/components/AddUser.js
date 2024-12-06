@@ -16,7 +16,7 @@ function AddUser({ setShowUserModal, updateUsersList }) {
     useEffect(() => {
         const fetchRoles = async () => {
             try {
-                const response = await axios.get("${process.env.REACT_APP_BACKEND_URL}/api/roles"); // Obtener roles del backend
+                const response = await axios.get("https://test-rso2.onrender.com/api/roles"); // Obtener roles del backend
                 setRoles(response.data); // Establecer los roles en el estado
             } catch (error) {
                 console.error("Error fetching roles:", error);
@@ -34,7 +34,7 @@ function AddUser({ setShowUserModal, updateUsersList }) {
 
         try {
             // Enviar la nueva creación de usuario al backend
-            const response = await axios.post("${process.env.REACT_APP_BACKEND_URL}/api/users", newUser);
+            const response = await axios.post("https://test-rso2.onrender.com/api/users", newUser);
 
             // Agregar el nuevo usuario a la lista en User.js
             updateUsersList(response.data);
